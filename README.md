@@ -13,7 +13,6 @@ I denne øvingen skal vi bygge en enkel applikasjon som ligner på det vi har gj
 
 * Start glassfish4:
 
-
     cd $GLASSFISH_HOME/bin
     ./asadmin start-domain
     
