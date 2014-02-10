@@ -7,7 +7,6 @@ I denne øvingen skal vi bygge en enkel applikasjon som ligner på det vi har gj
 
 * Start derby databasen:
 
-
     cd $GLASSFISH_HOME/javadb/bin && ./NetworkServerControl start
 
 * Start glassfish4:
