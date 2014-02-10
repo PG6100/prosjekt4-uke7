@@ -7,11 +7,14 @@ I denne øvingen skal vi bygge en enkel applikasjon som ligner på det vi har gj
 
 * Start derby databasen:
 
-    ``cd $GLASSFISH_HOME/javadb/bin &&  ./NetworkServerControl start``
+
+    cd $GLASSFISH_HOME/javadb/bin
+    ./NetworkServerControl start
 
 * Start glassfish4:
 
-    ``cd $GLASSFISH_HOME/bin && ./asadmin start-domain``
+    cd $GLASSFISH_HOME/bin
+    ./asadmin start-domain
     
 *  Implementer koden. Sender kan være basert på forrige forelesningens JMS sender. Sørg for at MDB skriver ut noe ved meldingsmottak (System.out.println()) slik at det er mulig å verifisere at den er kjørt. Her kan du gjenbruke samme destinasjon som på forrige forelesning. Hvis du ikke har destinasjon, så må du opprette i admin console.
 
