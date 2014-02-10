@@ -27,3 +27,5 @@ I denne øvingen skal vi bygge en enkel applikasjon som ligner på det vi har gj
 
 
 Gjerne eksperimenter med ``@PostConstruct`` og ``@PreDestroy``. Ting som printes i ``System.out`` blir skrevet i ``$GLASSFISH_HOME/glassfish/domains/domain1/logs/server.log``
+
+Ekstra tillegsoppgave: lag en EJB som blir kallt fra MDB. Kast exception fra EJB-en for å så sjekke om transaksjonen ble vellykket.
