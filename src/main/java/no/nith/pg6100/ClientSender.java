@@ -1,10 +1,33 @@
 package no.nith.pg6100;
 
+import javax.jms.*;
+import javax.naming.InitialContext;
+
 public class ClientSender {
 
     public static void main(String[] args) {
-        // Fra forrige øving vet dere hvordan en meldingssender skal være
-        // implementer her en sender som sender melding til destinasjon hvor MDB-en lytter på server siden.
-        // Denne skal kjøre på klientsiden (fjernt)
+        try {
+            InitialContext context = new InitialContext();
+            QueueConnectionFactory connectionFactory = (QueueConnectionFactory) context.lookup("jms/QueueConnectionFactory");
+            System.out.println("got queue connection factory: " + connectionFactory.getClass().getName());
+            QueueConnection con = connectionFactory.createQueueConnection();
+            try {
+                Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+                try {
+                    Destination destination = (Destination) context.lookup("jms/Queue");
+                    MessageProducer producer = session.createProducer(destination);
+                    TextMessage textMessage = session.createTextMessage();
+                    textMessage.setText("Heia fisk frosk, melding fra basic queue sender!");
+                    producer.send(textMessage);
+                    System.out.println("message sent!");
+                } finally {
+                    session.close();
+                }
+            } finally {
+                con.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
